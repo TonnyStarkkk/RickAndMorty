@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/characterFragment">
+
+    <fragment
+        android:id="@+id/characterFragment"
+        android:name="com.example.aidar_hw_5_2.ui.characters.CharacterFragment"
+        android:label="CharacterFragment" />
+
+    <fragment
+        android:id="@+id/charactersDetailFragment"
+        android:name="com.example.aidar_hw_5_2.ui.character_details.CharactersDetailFragment"
+        android:label="CharactersDetailFragment" />
+</navigation>
