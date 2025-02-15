@@ -1,4 +1,4 @@
-package com.example.aidar_hw_5_2.ui.characters
+package com.example.aidar_hw_5_2.ui.fragments.characters
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -26,7 +26,7 @@ class CharacterViewModel() : ViewModel() {
                 Log.d("RESPONSE", "Response code: ${response.code()}, Body: ${response.body()}")
                 if (response.isSuccessful) {
                     response.body()?.let {
-                        _characters.postValue(response.body())
+                        _characters.postValue(it)
                     }
                 } else {
                     _error.postValue("Error: ${response.code()}")

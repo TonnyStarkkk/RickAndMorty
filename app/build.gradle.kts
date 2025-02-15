@@ -56,6 +56,7 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.expandablelayout)
 
     //Retrofit
     implementation(libs.retrofit)
@@ -68,9 +69,12 @@ dependencies {
     implementation(libs.vbpd)
 
     //Koin
-    implementation(libs.koin.android)
+
 
     //Navigation
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+
+    //Glide
+    implementation(libs.glide)
 }

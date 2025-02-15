@@ -6,11 +6,20 @@
 
     <fragment
         android:id="@+id/characterFragment"
-        android:name="com.example.aidar_hw_5_2.ui.characters.CharacterFragment"
-        android:label="CharacterFragment" />
+        android:name="com.example.aidar_hw_5_2.ui.fragments.characters.CharacterFragment"
+        android:label="CharacterFragment" >
+        <action
+            android:id="@+id/action_characterFragment_to_charactersDetailFragment"
+            app:destination="@id/charactersDetailFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/charactersDetailFragment"
-        android:name="com.example.aidar_hw_5_2.ui.character_details.CharactersDetailFragment"
-        android:label="CharactersDetailFragment" />
+        android:name="com.example.aidar_hw_5_2.ui.fragments.character_details.CharactersDetailFragment"
+        android:label="CharactersDetailFragment" >
+        <argument
+            android:name="character_id"
+            app:argType="integer"
+            android:defaultValue="-1"/>
+    </fragment>
 </navigation>

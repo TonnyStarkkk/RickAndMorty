@@ -1,4 +1,4 @@
-package com.example.aidar_hw_5_2.ui.characters
+package com.example.aidar_hw_5_2.ui.fragments.characters
 
 import android.util.Log
 import android.view.LayoutInflater
@@ -11,9 +11,9 @@ import com.example.aidar_hw_5_2.R
 import com.example.aidar_hw_5_2.data.model.characters.Character
 import com.example.aidar_hw_5_2.databinding.ItemCharacterBinding
 
-class CharacterAdapter: ListAdapter<Character, CharacterAdapter.ViewHolder>(diffUtil) {
-
-    private val characterList = mutableListOf<Character>()
+class CharacterAdapter(
+    private val onItemClick: (Int) -> Unit
+): ListAdapter<Character, CharacterAdapter.ViewHolder>(diffUtil) {
 
     inner class ViewHolder(private val binding: ItemCharacterBinding) :
             RecyclerView.ViewHolder(binding.root) {
@@ -32,6 +32,10 @@ class CharacterAdapter: ListAdapter<Character, CharacterAdapter.ViewHolder>(diff
                             else -> R.drawable.ic_circle_grey
                         }
                     )
+
+                    root.setOnClickListener {
+                        onItemClick(character.id)
+                    }
                 }
             }
 
@@ -43,10 +47,6 @@ class CharacterAdapter: ListAdapter<Character, CharacterAdapter.ViewHolder>(diff
         val character = getItem(position)
         Log.d("BIND", "onBindViewHolder: ${character.name}")
         holder.onBind(character)
-    }
-
-    override fun getItemCount(): Int {
-        return characterList.size
     }
 
     companion object {
