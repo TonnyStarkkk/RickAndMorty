@@ -24,7 +24,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="16dp"
             android:orientation="vertical">
 
             <ImageView
@@ -105,7 +104,7 @@
                         app:expandable_duration="300"
                         app:expandable_isExpanded="false"
                         app:expandable_parentLayout="@layout/expandable_parent"
-                        app:expandable_secondLayout="@layout/expandable_detail_character_info" />
+                        app:expandable_secondLayout="@layout/expandable_detail_character_info"/>
 
                     <com.skydoves.expandablelayout.ExpandableLayout
                         android:id="@+id/expandable2"
@@ -115,7 +114,7 @@
                         app:expandable_duration="300"
                         app:expandable_isExpanded="false"
                         app:expandable_parentLayout="@layout/expandable_parent"
-                        app:expandable_secondLayout="@layout/expandable_detail_origin" />
+                        app:expandable_secondLayout="@layout/expandable_detail_origin"/>
 
                     <com.skydoves.expandablelayout.ExpandableLayout
                         android:id="@+id/expandable3"
@@ -125,7 +124,7 @@
                         app:expandable_duration="300"
                         app:expandable_isExpanded="false"
                         app:expandable_parentLayout="@layout/expandable_parent"
-                        app:expandable_secondLayout="@layout/expandable_detail_first_seen" />
+                        app:expandable_secondLayout="@layout/expandable_detail_first_seen"/>
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
         </LinearLayout>

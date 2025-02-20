@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     id ("kotlin-kapt")
     id("androidx.navigation.safeargs.kotlin")
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -68,8 +69,9 @@ dependencies {
     //ViewBinding Delegate
     implementation(libs.vbpd)
 
-    //Koin
-
+    //Dagger-Hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
 
     //Navigation
     implementation(libs.androidx.navigation.fragment.ktx)

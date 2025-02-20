@@ -9,8 +9,10 @@ import androidx.fragment.app.viewModels
 import com.bumptech.glide.Glide
 import com.example.aidar_hw_5_2.R
 import com.example.aidar_hw_5_2.databinding.FragmentCharacterDetailBinding
+import dagger.hilt.android.AndroidEntryPoint
 import dev.androidbroadcast.vbpd.viewBinding
 
+@AndroidEntryPoint
 class CharactersDetailFragment : Fragment(R.layout.fragment_character_detail) {
 
     private val binding by viewBinding(FragmentCharacterDetailBinding::bind)
@@ -30,23 +32,26 @@ class CharactersDetailFragment : Fragment(R.layout.fragment_character_detail) {
 
     private fun observeViewModel() {
         viewModel.character.observe(viewLifecycleOwner) { character ->
-            binding.characterName.text = character.name
-            binding.characterStatus.text = character.status
-            binding.characterLocation.text = character.location.name
-            binding.characterGender.text = character.gender
+            with(binding) {
+                characterName.text = character.name
+                characterStatus.text = character.status
+                characterLocation.text = character.location.name
+                characterGender.text = character.gender
 
-            Glide.with(this)
-                .load(character.image)
-                .into(binding.characterImage)
+                Glide.with(this@CharactersDetailFragment)
+                    .load(character.image)
+                    .into(characterImage)
 
-            binding.expandable.secondLayout.findViewById<TextView>(R.id.tv_character_info)?.text =
-                "ID: ${character.id}\nSpecies: ${character.species}\nType: ${character.type}"
+                expandable.secondLayout.findViewById<TextView>(R.id.tv_character_info)?.text =
+                    "ID: ${character.id}\nSpecies: ${character.species}\nType: ${character.type}"
 
-            binding.expandable2.secondLayout.findViewById<TextView>(R.id.tv_origin)?.text =
-                "Origin: ${character.origin.name}"
+                expandable2.secondLayout.findViewById<TextView>(R.id.tv_origin)?.text =
+                    "Origin: ${character.origin.name}"
 
-            binding.expandable3.secondLayout.findViewById<TextView>(R.id.tv_first_seen)?.text =
-                "First seen in: ${character.episode.firstOrNull() ?: "Unknown"}"
+                expandable3.secondLayout.findViewById<TextView>(R.id.tv_first_seen)?.text =
+                    "First seen in: ${character.episode.firstOrNull() ?: "Unknown"}"
+
+            }
         }
 
         viewModel.error.observe(viewLifecycleOwner) { error ->

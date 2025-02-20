@@ -3,15 +3,16 @@ package com.example.aidar_hw_5_2.ui.fragments.character_details
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.aidar_hw_5_2.data.api.ApiService
 import com.example.aidar_hw_5_2.data.model.characters.Character
-import com.example.aidar_hw_5_2.data.retrofit.RetrofitInstance
+import dagger.hilt.android.lifecycle.HiltViewModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
-class CharacterDetailViewModel : ViewModel() {
-
-    private val api = RetrofitInstance.api
+@HiltViewModel
+class CharacterDetailViewModel @Inject constructor(private val api: ApiService) : ViewModel() {
 
     private val _character = MutableLiveData<Character>()
     val character: LiveData<Character> get() = _character
