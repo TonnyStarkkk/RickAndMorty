@@ -1,5 +1,5 @@
 [versions]
-agp = "8.7.3"
+agp = "8.8.0"
 coil = "2.6.0"
 expandablelayout = "1.0.7"
 glide = "4.16.0"
@@ -16,12 +16,15 @@ activity = "1.10.0"
 constraintlayout = "2.2.0"
 navigationFragmentKtx = "2.8.7"
 retrofit = "2.11.0"
+roomRuntime = "2.6.1"
 vbpd = "2.0.2"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
 androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx", version.ref = "navigationFragmentKtx" }
+androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomRuntime" }
+androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
 coil = { module = "io.coil-kt:coil", version.ref = "coil" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
 expandablelayout = { module = "com.github.skydoves:expandablelayout", version.ref = "expandablelayout" }

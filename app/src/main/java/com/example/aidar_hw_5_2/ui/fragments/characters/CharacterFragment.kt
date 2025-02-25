@@ -42,16 +42,12 @@ class CharacterFragment : Fragment(R.layout.fragment_character) {
     }
 
     private fun setupObserve() {
-        viewModel.characters.observe(viewLifecycleOwner) { response ->
-            response.results?.let { results ->
-                (binding.rvCharacter.adapter as CharacterAdapter).submitList(results)
+        viewModel.localCharacters.observe(viewLifecycleOwner) { characters ->
+            (binding.rvCharacter.adapter as CharacterAdapter).submitList(characters)
 
-                with(binding) {
-                    rvCharacter.visibility = View.VISIBLE
-                    pgCharacter.visibility = View.GONE
-                }
-            }
+            binding.pgCharacter.visibility = View.GONE
         }
+
         viewModel.error.observe(viewLifecycleOwner) { message ->
             Toast.makeText(requireContext(), message, Toast.LENGTH_SHORT).show()
             binding.pgCharacter.visibility = View.GONE
